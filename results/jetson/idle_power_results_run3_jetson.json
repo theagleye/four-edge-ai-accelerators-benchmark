@@ -1,0 +1,12 @@
+{
+  "platform": "Jetson Nano - NVIDIA Maxwell GPU",
+  "benchmark_type": "idle_power_baseline",
+  "duration_s": 90,
+  "n_samples": 178,
+  "pom_5v_in_median_mw": 1950.0,
+  "pom_5v_in_mean_mw": 1946.6,
+  "pom_5v_in_std_mw": 64.2,
+  "pom_5v_gpu_median_mw": 121.0,
+  "cpu_temp_mean_c": 24.5,
+  "gpu_temp_mean_c": 24.1
+}

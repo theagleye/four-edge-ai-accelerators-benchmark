@@ -1,0 +1,34 @@
+{
+  "model": "model_run3_quark_500.onnx",
+  "methodology": "INA260 onboard, 10s intervals - consistent with AMD WP529",
+  "n_runs": 500,
+  "idle_w": {
+    "mean": 4.306666666666667,
+    "samples": [
+      4.53,
+      4.22,
+      4.17
+    ]
+  },
+  "inference_w": {
+    "mean": 5.496,
+    "peak": 6.17,
+    "samples": [
+      5.56,
+      5.29,
+      5.11,
+      5.65,
+      6.09,
+      5.44,
+      5.12,
+      5.31,
+      6.17,
+      5.22
+    ]
+  },
+  "delta_w": 1.1893333333333338,
+  "invoke_median_ms": 187.00944249576423,
+  "energy_per_invoke_j": 0.22241656360829568,
+  "fps": 5.312484133485898,
+  "fps_per_w": 0.966609194593504
+}

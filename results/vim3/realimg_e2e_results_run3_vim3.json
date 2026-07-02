@@ -1,0 +1,77 @@
+{
+  "platform": "Khadas VIM3 Basic - Amlogic A311D NPU (TIM-VX delegate)",
+  "model": "EfficientDet-Lite2 INT8 - model_run3.tflite",
+  "benchmark_type": "real_image_e2e",
+  "input_shape": [
+    1,
+    448,
+    448,
+    3
+  ],
+  "num_images": 500,
+  "random_seed": 42,
+  "images_processed": 500,
+  "images_skipped": 0,
+  "load_time_ms": 147.94,
+  "warmup": {
+    "invoke_ms_per_run": [
+      9282.0,
+      1374.24,
+      1374.17,
+      1374.05,
+      1373.94
+    ],
+    "e2e_ms_per_run": [
+      9282.76,
+      1374.47,
+      1374.42,
+      1374.29,
+      1374.17
+    ]
+  },
+  "steady_state": {
+    "invoke": {
+      "median_ms": 1374.117,
+      "mean_ms": 1374.153,
+      "std_ms": 0.435,
+      "min_ms": 1373.125,
+      "max_ms": 1375.816,
+      "n": 500
+    },
+    "e2e": {
+      "median_ms": 1407.354,
+      "mean_ms": 1407.367,
+      "std_ms": 0.867,
+      "min_ms": 1404.492,
+      "max_ms": 1410.829,
+      "n": 500
+    },
+    "throughput_fps": 0.711,
+    "total_bench_time_s": 703.691
+  },
+  "system": {
+    "cpu_percent": {
+      "mean": 0.7945,
+      "median": 0.0,
+      "std": 2.3148,
+      "min": 0.0,
+      "max": 12.9,
+      "n_samples": 7014
+    },
+    "ram_mb": {
+      "mean": 263.4893,
+      "median": 263.4883,
+      "std": 0.1941,
+      "min": 263.2383,
+      "max": 263.7461,
+      "n_samples": 7014
+    },
+    "power_watts": "not_available - measured externally via ATORCH J7-C"
+  },
+  "notes": {
+    "e2e_def": "E2E = disk load + PIL resize + set_tensor + invoke + get_tensor",
+    "invoke_def": "invoke only = interpreter.invoke() call",
+    "input_type": "real BDD100K val images, resized to 448x448",
+    "power_note": "measured externally via ATORCH J7-C inline on USB-C power rail"
+  }
+}

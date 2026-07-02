@@ -1,0 +1,49 @@
+{
+  "platform": "Khadas VIM3 Basic - Amlogic A311D NPU (TIM-VX)",
+  "model": "EfficientDet-Lite2 INT8 - model_run3.tflite",
+  "benchmark_type": "real_image_e2e",
+  "idle_power": {
+    "mean_W": 2.3951,
+    "median_W": 2.3686,
+    "std_W": 0.1603,
+    "n_samples": 93,
+    "source": "idle_power_run3_vim3.csv"
+  },
+  "warmup_power": {
+    "mean_W": 3.3357,
+    "max_W": 3.5568,
+    "n_samples": 8,
+    "note": "cold-start first invoke spike + initial warmup invokes"
+  },
+  "inference_power": {
+    "mean_W": 2.7273,
+    "median_W": 2.6506,
+    "std_W": 0.2224,
+    "n_samples": 720,
+    "source": "realimg_e2e_power_run3_vim3.csv rows 103-822"
+  },
+  "delta_W": 0.3322,
+  "energy_per_invoke_J": 3.7476,
+  "energy_per_e2e_J": 3.8383,
+  "fps_per_watt": 0.2607,
+  "voltage_sag_V": -0.0024,
+  "voltage_sag_pct": -0.03,
+  "operational_cost": {
+    "wh_per_day": 65.46,
+    "eur_per_year": 2.39,
+    "rate_eur_per_kwh": 0.1,
+    "assumption": "continuous 24/7 operation"
+  },
+  "timing_reference": {
+    "invoke_median_ms": 1374.117,
+    "e2e_median_ms": 1407.354,
+    "fps": 0.711
+  },
+  "coral_reference": {
+    "idle_W": 0.796,
+    "inference_W": 1.504,
+    "energy_per_invoke_J": 0.492,
+    "energy_per_e2e_J": 0.565,
+    "fps_per_watt": 1.757
+  }
+}

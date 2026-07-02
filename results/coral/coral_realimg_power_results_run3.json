@@ -1,0 +1,42 @@
+{
+  "platform": "Coral Dev Board Mini - Google Edge TPU",
+  "benchmark_type": "real_image_e2e_power",
+  "n_total_samples": 305,
+  "duration_s": 304.7,
+  "threshold_W": 1.0,
+  "idle": {
+    "n": 108,
+    "power_mean_W": 0.7958,
+    "power_std_W": 0.0324,
+    "volt_mean_V": 5.113,
+    "temp_mean_C": 23.7
+  },
+  "inference": {
+    "n": 197,
+    "power_mean_W": 1.5037,
+    "power_median_W": 1.524,
+    "power_std_W": 0.2108,
+    "volt_mean_V": 5.101,
+    "temp_mean_C": 23.8,
+    "temp_max_C": 24.0,
+    "temp_rise_C": 0.0
+  },
+  "voltage_sag_V": 0.011,
+  "voltage_sag_pct": 0.22,
+  "delta_power_W": 0.708,
+  "invoke_median_ms": 326.874,
+  "e2e_median_ms": 375.612,
+  "energy_invoke_J": 0.491533,
+  "energy_e2e_J": 0.564822,
+  "fps": 2.642,
+  "fps_per_W": 1.757,
+  "operational_cost": {
+    "power_W": 1.504,
+    "Wh_per_hour": 1.504,
+    "Wh_per_day": 36.09,
+    "EUR_per_day": 0.0036,
+    "EUR_per_year": 1.32,
+    "electricity_rate": "0.1 EUR/kWh"
+  },
+  "methodology_note": "Power measured at Coral Dev Board Mini dedicated USB-C power port via ATORCH J7-C. OTG port connected to host for SSH - small unmetered VBUS contribution from host not captured. Idle/inference phases separated at 1.0W threshold."
+}

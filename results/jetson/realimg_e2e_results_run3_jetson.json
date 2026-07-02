@@ -1,0 +1,63 @@
+{
+  "platform": "Jetson Nano - NVIDIA Maxwell GPU",
+  "model": "YOLOv4-416 TensorRT FP16",
+  "benchmark_type": "real_image_e2e",
+  "num_images": 500,
+  "random_seed": 42,
+  "images_processed": 500,
+  "images_skipped": 0,
+  "warmup_ms": [
+    251.567,
+    211.127,
+    209.79,
+    209.381,
+    209.13,
+    209.378,
+    209.066,
+    208.852,
+    209.075,
+    209.217
+  ],
+  "invoke": {
+    "median_ms": 209.988,
+    "mean_ms": 210.188,
+    "std_ms": 1.049,
+    "p95_ms": 212.307,
+    "p99_ms": 213.954,
+    "min_ms": 206.786,
+    "max_ms": 215.425,
+    "cv": 0.005,
+    "n": 500
+  },
+  "e2e": {
+    "median_ms": 230.589,
+    "mean_ms": 230.875,
+    "std_ms": 5.53,
+    "p95_ms": 241.309,
+    "p99_ms": 244.861,
+    "min_ms": 213.161,
+    "max_ms": 248.811,
+    "cv": 0.024,
+    "n": 500
+  },
+  "throughput_fps": 4.331,
+  "total_bench_time_s": 115.443,
+  "power": {
+    "pom_5v_in_median_mw": 6848,
+    "pom_5v_in_mean_mw": 6658.3,
+    "pom_5v_gpu_median_mw": 4008,
+    "n_samples": 229
+  },
+  "temperature": {
+    "cpu_min_c": 26.5,
+    "cpu_max_c": 37.5,
+    "gpu_min_c": 25.5,
+    "gpu_max_c": 33.5
+  },
+  "notes": {
+    "e2e_def": "E2E = cv2.imread + cv2.resize + trt_yolo.detect",
+    "invoke_def": "invoke = trt_yolo.detect only",
+    "power_tool": "tegrastats (INA3221 onboard sensor)",
+    "dataset": "COCO val2017, 500 images, seed=42"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "platform": "Coral Dev Board Mini - Google Edge TPU",
+  "model": "EfficientDet-Lite2 INT8 - model_run3_edgetpu.tflite",
+  "dataset": "BDD100K run2/val - 4993 images",
+  "methodology": "matches eval_map_voc.py exactly",
+  "score_threshold": 0.25,
+  "iou_threshold": 0.5,
+  "mAP_50": 0.2288,
+  "ap_per_class": {
+    "tl_red": {
+      "ap": 0.119,
+      "n_gt": 3324,
+      "n_det": 2532
+    },
+    "tl_green": {
+      "ap": 0.1678,
+      "n_gt": 5711,
+      "n_det": 4794
+    },
+    "tl_yellow": {
+      "ap": 0.0,
+      "n_gt": 239,
+      "n_det": 0
+    },
+    "pedes": {
+      "ap": 0.1948,
+      "n_gt": 6410,
+      "n_det": 3710
+    },
+    "car": {
+      "ap": 0.521,
+      "n_gt": 50001,
+      "n_det": 37975
+    },
+    "truck": {
+      "ap": 0.3126,
+      "n_gt": 1948,
+      "n_det": 1188
+    },
+    "t_sign": {
+      "ap": 0.286,
+      "n_gt": 17194,
+      "n_det": 9001
+    }
+  },
+  "invoke_timing": {
+    "median_ms": 327.205,
+    "mean_ms": 330.101,
+    "std_ms": 11.213,
+    "min_ms": 314.776,
+    "max_ms": 621.509,
+    "n": 4993
+  },
+  "total_inference_time_min": 35.32,
+  "throughput_fps": 2.356,
+  "skipped": 0,
+  "coral_reference": {
+    "mAP_50": 0.1658,
+    "invoke_median_ms": 320,
+    "e2e_median_ms": 490,
+    "note": "Coral mAP was on run1/val - needs rerun on run2/val for fair comparison"
+  },
+  "class_mapping": {
+    "1": "tl_red",
+    "2": "tl_green",
+    "3": "tl_yellow",
+    "4": "pedes",
+    "5": "car",
+    "6": "truck",
+    "7": "t_sign"
+  }
+}

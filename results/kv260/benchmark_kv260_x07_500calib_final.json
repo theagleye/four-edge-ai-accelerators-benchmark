@@ -1,0 +1,178 @@
+{
+  "platform": "AMD Kria KV260 Robotics Starter Kit - DPUCZDX8G FPGA DPU",
+  "model": "EfficientDet-Lite2 INT8 - model_run3_quark_500.onnx (Quark 0.11.1, PowerOfTwoMethod.MinMSE, 500 calib imgs)",
+  "quantization_note": "Final run - 500 calib images, PowerOfTwoMethod.MinMSE",
+  "input_shape": [
+    1,
+    448,
+    448,
+    3
+  ],
+  "input_dtype": "float32",
+  "num_warmup": 5,
+  "num_runs_synthetic": 500,
+  "num_runs_real": 500,
+  "load_time_ms": 6619.15,
+  "anchor_count": 37629,
+  "warmup": {
+    "invoke_ms_per_run": [
+      201.99,
+      191.11,
+      190.07,
+      208.57,
+      215.84
+    ],
+    "e2e_ms_per_run": [
+      235.97,
+      227.53,
+      223.91,
+      245.25,
+      249.61
+    ]
+  },
+  "synthetic": {
+    "invoke": {
+      "median_ms": 188.502,
+      "mean_ms": 191.118,
+      "std_ms": 12.632,
+      "cv_pct": 6.6094,
+      "p95_ms": 211.772,
+      "p99_ms": 229.224,
+      "min_ms": 176.736,
+      "max_ms": 303.107,
+      "n": 500
+    },
+    "e2e": {
+      "median_ms": 188.543,
+      "mean_ms": 191.172,
+      "std_ms": 12.632,
+      "cv_pct": 6.6078,
+      "p95_ms": 211.823,
+      "p99_ms": 229.33,
+      "min_ms": 176.778,
+      "max_ms": 303.149,
+      "n": 500
+    },
+    "throughput_fps": 5.23,
+    "total_bench_time_s": 95.597,
+    "system": {
+      "cpu_percent": {
+        "mean": 98.784,
+        "median": 100.0,
+        "std": 3.5088,
+        "min": 0.0,
+        "max": 100.0,
+        "n_samples": 946
+      },
+      "ram_mb": {
+        "mean": 174.3134,
+        "median": 172.6562,
+        "std": 12.2998,
+        "min": 160.125,
+        "max": 197.4688,
+        "n_samples": 946
+      },
+      "power_watts": "measured using the on-board INA260 sensor via direct sysfs reads (axi:ina260-u14, hwmon2)"
+    },
+    "e2e_def": "np.empty alloc + sess.run() + iterate outputs (no NMS)",
+    "invoke_def": "sess.run() call only (DPU inference + I/O copy)"
+  },
+  "real_image": {
+    "invoke": {
+      "median_ms": 192.707,
+      "mean_ms": 196.57,
+      "std_ms": 12.566,
+      "cv_pct": 6.3926,
+      "p95_ms": 212.828,
+      "p99_ms": 229.825,
+      "min_ms": 176.121,
+      "max_ms": 310.849,
+      "n": 500
+    },
+    "e2e": {
+      "median_ms": 335.402,
+      "mean_ms": 335.46,
+      "std_ms": 15.657,
+      "cv_pct": 4.6673,
+      "p95_ms": 357.628,
+      "p99_ms": 372.675,
+      "min_ms": 297.641,
+      "max_ms": 446.653,
+      "n": 500
+    },
+    "preproc": {
+      "median_ms": 57.212,
+      "mean_ms": 58.197,
+      "std_ms": 3.639,
+      "cv_pct": 6.2522,
+      "p95_ms": 63.777,
+      "p99_ms": 65.086,
+      "min_ms": 52.366,
+      "max_ms": 92.988,
+      "n": 500
+    },
+    "postproc_nms": {
+      "median_ms": 80.959,
+      "mean_ms": 80.683,
+      "std_ms": 8.065,
+      "cv_pct": 9.9953,
+      "p95_ms": 94.28,
+      "p99_ms": 99.925,
+      "min_ms": 61.323,
+      "max_ms": 109.813,
+      "n": 500
+    },
+    "throughput_fps": 2.981,
+    "total_time_s": 167.738,
+    "system": {
+      "cpu_percent": {
+        "mean": 82.7128,
+        "median": 95.3,
+        "std": 20.3905,
+        "min": 26.8,
+        "max": 100.0,
+        "n_samples": 1633
+      },
+      "ram_mb": {
+        "mean": 235.2549,
+        "median": 236.1953,
+        "std": 14.3778,
+        "min": 197.582,
+        "max": 260.6875,
+        "n_samples": 1633
+      },
+      "power_watts": "measured using the on-board INA260 sensor via direct sysfs reads (axi:ina260-u14, hwmon2)"
+    },
+    "e2e_def": "PIL load+resize+normalize + sess.run() + anchor decode + NMS",
+    "invoke_def": "sess.run() only (within real-image pipeline)",
+    "comparability_note": "KV260 invoke excludes NMS (baked into Coral/VIM3 TFLite). Real-image e2e includes NMS and is comparable to Coral/VIM3 e2e."
+  },
+  "notes": {
+    "dpu_fingerprint": "0x101000056010407",
+    "voe_version": "2023.1-r3.5.0",
+    "quark_version": "0.11.1",
+    "calib_method": "PowerOfTwoMethod.MinMSE",
+    "nms_impl": "pure numpy, iou_thresh=0.5, score_thresh=0.05",
+    "anchor_config": {
+      "strides": [
+        8,
+        16,
+        32,
+        64,
+        112
+      ],
+      "scales": [
+        1,
+        1.2599,
+        1.5874
+      ],
+      "ratios": [
+        1.0,
+        2.0,
+        0.5
+      ],
+      "anchor_base_scale": 4.0
+    },
+    "power": "measured via INA260 onboard sensor (axi:ina260-u14, hwmon2)"
+  }
+}
