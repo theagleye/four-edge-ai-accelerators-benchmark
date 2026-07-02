@@ -25,15 +25,15 @@ AMD Kria KV260: Ubuntu 22.04 (Python 3.10.20), x07 firmware. ONNX Runtime 1.16.0
 - While on SSH, the VIM3 NPU only comes up under an active terminal. Run inference inside screen, not nohup, otherwise the NPU will not initialize.
 - The Coral tflite_runtime is whatever ships with the Mendel image. The version that matters for the reproducing the Coral numbers is the Edge TPU Compiler version above.
 - For the KV260, all final numbers are on the x07 firmware, which fixed an on-board compiler crash. The DPU fingerprint is 0x101000056010407, target DPUCZDX8G_ISA1_B4096, running at 300 MHz. Final latency and power metrics (calibration-independent) are captured using 500-image calibration and the mAP results are based on the 500-calibration model.
-- All host-side work (training, export, ONNX conversion, quantization, evaluation) ran on on PC on Ubuntu 22.04, with each board driven over the network.
+- All host-side work (training, export, ONNX conversion, quantization, evaluation) ran on a PC running Ubuntu 22.04, with each board driven over the network.
 - Power is captured differently per board: Coral and VIM3 use an external ATORCH J7-C BLE power meter on the USB-C power rail. Jetson uses the on-board INA3221 sensor via tegrastats (subprocess + parsed log). KV260 uses the on-board INA260 sensor via direct sysfs reads.
 
 The Coefficient of Variations in Table 5.1 is computed from each board's dedicated repeated-inference timing run; the per-run raw logs are available on request.
 
 ## Known reproduction caveats
-- The Coral and VIM3 numbers require an ATORCH J7-C power meter paired over BLE (scripts/shared/atorch_logger.py).
+- The Coral and VIM3 numbers require an ATORCH J7-C power meter paired over BLE; the logger script is available on request.
 - The KV260 deployed model (model_run3_quark_500.onnx) is the deployed integer graph. The quantization generator scripts are not included in this repo; the exact configuration (500-image calibration, MinMSE, per-tensor power-of-two, QInt8 wt / QUInt8 act, symmetric INT8, no CLE, DPUCZDX8G target) is documented in the thesis.
-- The Jetson conversion-attempt scripts (scripts/jetson/convtoonnx/) document four failed TFLite→TRT/ONNX routes on Maxwell SM5.3.
+- The Jetson conversion attempts (documented in the thesis, Section 4.4.1) covered four failed TFLite→TRT/ONNX routes on Maxwell SM5.3.
 - The Quark ablation experiments that documented the KV260 mAP collapse are not included in this repo; available on request.
 
 ## Layout
@@ -48,9 +48,8 @@ Each folder has the raw JSON logs for that board (latency, throughput, power and
 ## Results
 End-to-end throughput, energy per inference, and mAP at IoU 0.50 on the BDD100K validation set (the Jetson is the exception noted above)
 
-Coral Edge TPU:  2.66 FPS, 0.57 J per inference, 0.2288 mAP. Most energy-efficient
-Khadas VIM3: 0.71 FPS, 3.84 J per inference, 0.2278 mAP. Most deterministic but highest
-energy.
+Coral Edge TPU:  2.66 FPS, 0.56 J per inference, 0.2288 mAP. Most energy-efficient
+Khadas VIM3: 0.71 FPS, 3.84 J per inference, 0.2278 mAP. Most deterministic but highest energy.
 Kria KV260: 2.98 FPS, 1.84 J per inference, 0.2400 mAP (host-CPU figure, see below).
 Jetson Nano: 4.34 FPS, 1.54 J per inference, 0.700 mAP (COCO-val2017, YOLOv4-416, not comparable on accuracy)
 
