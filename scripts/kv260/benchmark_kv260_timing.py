@@ -32,7 +32,7 @@ import numpy as np
 from PIL import Image
 import onnxruntime as ort
 
-MODEL_PATH = "/home/ubuntu/model_run3_quark_200.onnx"
+MODEL_PATH = "/home/ubuntu/model_run3_quark_500.onnx"
 VAIP_CONFIG = "/usr/bin/vaip_config.json"
 VAL_DIR = "/home/ubuntu/val_images"
 INPUT_H = 448
@@ -41,7 +41,7 @@ NUM_WARMUP = 5
 NUM_RUNS = 500
 NUM_REAL = 500
 MONITOR_INTERVAL_S = 0.1
-OUTPUT_JSON = "/home/ubuntu/benchmark_kv260_results_200calib_topk.json"
+OUTPUT_JSON = "/home/ubuntu/benchmark_kv260_x07_500calib_final.json"
 
 # efficientdet-lite2 anchor params (verified for 448x448, 5 fpn levels)
 # strides: level 3..7 -> 8,16,32,64,112
@@ -291,7 +291,7 @@ for i in range(NUM_WARMUP):
     e2e_ms = (t_e2e1 - t_e2e0) * 1000
     warmup_invoke_ms.append(round(inv_ms, 2))
     warmup_e2e_ms.append(round(e2e_ms, 2))
-    print(f"  #{i+1:02d}  invoke={inv_ms:8.2f} ms   e2e={e2e_ms:8.2f} ms")
+    print(f"  #{i+1:02d}  invoke={inv_ms:.2f} ms   e2e={e2e_ms:.2f} ms")
 
 print(f"\nsynthetic invoke benchmark ({NUM_RUNS} runs) ...")
 monitor_syn = SystemMonitor()
@@ -357,8 +357,8 @@ real_fps = len(val_imgs) / real_elapsed
 
 results = {
     "platform": "AMD Kria KV260 Vision AI Starter Kit - DPUCZDX8G FPGA DPU",
-    "model": "EfficientDet-Lite2 INT8 - model_run3_quark_200.onnx (Quark 0.11.1, PowerOfTwoMethod.MinMSE, 50 calib imgs)",
-    "quantization_note": "PRELIMINARY - 50 calib images. Final run uses 200 calib images.",
+    "model": "EfficientDet-Lite2 INT8 - model_run3_quark_500.onnx (Quark 0.11.1, PowerOfTwoMethod.MinMSE, 500 calib imgs)",
+    "quantization_note": "Final run - 500 calib images, PowerOfTwoMethod.MinMSE",
     "input_shape": [1, INPUT_H, INPUT_W, 3],
     "input_dtype": "float32",
     "num_warmup": NUM_WARMUP,
@@ -407,8 +407,6 @@ results = {
             "anchor_base_scale": ANCHOR_BASE_SCALE,
         },
         "power": "measured via INA260 onboard sensor (sysfs)",
-        "coral_ref": {"invoke_ms": 317.82, "e2e_ms": 375.61, "mAP50": 0.2347},
-        "vim3_ref": {"invoke_ms": 1374.14, "e2e_ms": 1407.11, "mAP50": 0.2278},
     },
 }
 
@@ -420,22 +418,20 @@ pre = results["real_image"]["preproc"]
 post = results["real_image"]["postproc_nms"]
 
 print("\nresults summary")
-print(f"  load time:              {load_ms:.1f} ms")
-print(f"  anchor count:           {anchors.shape[0]}")
-print(f"\n  synthetic invoke (ms):  median={inv['median_ms']}  mean={inv['mean_ms']}  "
+print(f"  load time: {load_ms:.1f} ms")
+print(f"  anchor count: {anchors.shape[0]}")
+print(f"\n  synthetic invoke (ms): median={inv['median_ms']}  mean={inv['mean_ms']}  "
       f"std={inv['std_ms']}  cv={inv['cv_pct']}%  p95={inv['p95_ms']}  p99={inv['p99_ms']}")
-print(f"  synthetic e2e (ms):     median={e2e_s['median_ms']}  mean={e2e_s['mean_ms']}")
-print(f"  synthetic fps:          {throughput_fps:.3f}")
-print(f"\n  real invoke (ms):       median={inv_r['median_ms']}  mean={inv_r['mean_ms']}  "
+print(f"  synthetic e2e (ms): median={e2e_s['median_ms']}  mean={e2e_s['mean_ms']}")
+print(f"  synthetic fps: {throughput_fps:.3f}")
+print(f"\n  real invoke (ms): median={inv_r['median_ms']}  mean={inv_r['mean_ms']}  "
       f"std={inv_r['std_ms']}  cv={inv_r['cv_pct']}%")
-print(f"  real preproc (ms):      median={pre['median_ms']}")
+print(f"  real preproc (ms): median={pre['median_ms']}")
 print(f"  real postproc+nms (ms): median={post['median_ms']}")
-print(f"  real e2e (ms):          median={e2e_r['median_ms']}  mean={e2e_r['mean_ms']}  "
+print(f"  real e2e (ms): median={e2e_r['median_ms']}  mean={e2e_r['mean_ms']}  "
       f"p95={e2e_r['p95_ms']}  p99={e2e_r['p99_ms']}")
-print(f"  real fps:               {real_fps:.3f}")
-print(f"\n  coral ref:  invoke={317.82} ms  e2e={375.61} ms")
-print(f"  vim3 ref:   invoke={1374.14} ms  e2e={1407.11} ms")
-print(f"  kv260 syn:  invoke={inv['median_ms']} ms  e2e={e2e_s['median_ms']} ms")
+print(f"  real fps: {real_fps:.3f}")
+print(f"\n  kv260 syn: invoke={inv['median_ms']} ms  e2e={e2e_s['median_ms']} ms")
 print(f"  kv260 real: invoke={inv_r['median_ms']} ms  e2e={e2e_r['median_ms']} ms")
 
 with open(OUTPUT_JSON, "w") as f:

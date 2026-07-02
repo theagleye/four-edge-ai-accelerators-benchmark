@@ -2,10 +2,10 @@
 # vim3 npu - per-class mAP@50 on bdd100k val set
 # efficientdet-lite2 INT8 (tim-vx delegate)
 # some details:
-#   - GT source:       pascal voc XML (pixel coords)
-#   - class ID:        int(classes[j]) + 1 (model outputs 0-indexed)
+#   - GT source: pascal voc XML (pixel coords)
+#   - class ID: int(classes[j]) + 1 (model outputs 0-indexed)
 #   - score threshold: 0.25
-#   - IoU threshold:   0.50
+#   - IoU threshold: 0.50
 # on ssh, always run inside screen (not nohup - npu driver needs active tty)
 
 import os

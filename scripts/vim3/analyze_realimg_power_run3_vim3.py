@@ -1,10 +1,10 @@
 
 # analyzes atorch power csv from vim3 real-image e2e benchmark
 # inference window determined from raw data inspection:
-#   - rows 0-94:    idle (0.26A)
-#   - rows 95-102:  cold-start warmup (9.282s first invoke spike)
+#   - rows 0-94: idle (0.26A)
+#   - rows 95-102: cold-start warmup (9.282s first invoke spike)
 #   - rows 103-822: steady-state inference (500 images x ~1407ms e2e)
-#   - rows 823+:    post-benchmark settling (0.27A - not used for idle)
+#   - rows 823+: post-benchmark settling (0.27A - not used for idle)
 # idle baseline from dedicated idle_power_run3_vim3.csv (93 samples, clean)
 
 import csv
@@ -109,13 +109,6 @@ results = {
         "invoke_median_ms": invoke_ms,
         "e2e_median_ms": e2e_ms,
         "fps": fps,
-    },
-    "coral_reference": {
-        "idle_W": 0.796,
-        "inference_W": 1.504,
-        "energy_per_invoke_J": 0.492,
-        "energy_per_e2e_J": 0.565,
-        "fps_per_watt": 1.757,
     },
 }
 

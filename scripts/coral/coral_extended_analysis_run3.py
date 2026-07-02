@@ -32,7 +32,7 @@ cv = inv["cv"]
 lat_mean = inv["mean_ms"]
 lat_std = inv["std_ms"]
 
-print("--- latency (500-run thermal test) ---")
+print("latency (500-run thermal test):")
 print(f"p50  : {p50:.3f}ms")
 print(f"p95  : {p95:.3f}ms")
 print(f"p99  : {p99:.3f}ms")
@@ -49,7 +49,7 @@ for lo, hi in zip(bins[:-1], bins[1:]):
     key = f"{lo}-{hi}ms"
     hist[key] = sum(1 for v in raw_ms if lo <= v < hi)
 
-print("\n--- latency histogram ---")
+print("\nlatency histogram:")
 for k, v in hist.items():
     bar = "#" * (v // 5)
     print(f"  {k:12} {v:4d}  {bar}")
@@ -75,7 +75,7 @@ if inf_rows:
     dt = math.sqrt(sum((v - mt)**2 for v in iter_temps))
     corr = num / (dx * dt) if dx * dt > 0 else 0.0
     temp_range = max(iter_temps) - min(iter_temps)
-    print(f"\n--- latency vs temperature ---")
+    print(f"\nlatency vs temperature:")
     print(f"temp range  : {min(iter_temps):.0f}C - {max(iter_temps):.0f}C  (delta={temp_range:.0f}C)")
     print(f"correlation : {corr:.4f}  ({'negligible - thermal stability confirmed' if abs(corr) < 0.1 else 'significant'})")
 else:
@@ -91,14 +91,14 @@ steady_energy = pw["energy_invoke_J"]
 cold_energy = inf_power * (cold_ms / 1000.0)
 cold_overhead = cold_energy - steady_energy
 
-print(f"\n--- cold-start energy ---")
+print(f"\ncold-start energy:")
 print(f"cold invoke : {cold_ms:.2f}ms")
 print(f"cold energy : {cold_energy:.4f}J")
 print(f"steady      : {steady_energy:.4f}J")
 print(f"overhead    : {cold_overhead:.4f}J  ({cold_overhead/steady_energy*100:.1f}% above steady)")
 
 # class frequency vs AP
-print(f"\n--- class frequency vs AP ---")
+print(f"\nclass frequency vs AP:")
 cls_data = mp["ap_per_class"]
 print(f"  {'class':<12} {'n_gt':>6}  {'freq%':>6}  {'ap':>6}  {'n_det':>7}")
 total_gt = sum(v["n_gt"] for v in cls_data.values())
@@ -111,7 +111,7 @@ for cls, v in cls_data.items():
 # confidence score distribution per class
 score_bins = [0.25, 0.35, 0.50, 0.75, 1.01]
 score_labels = ["0.25-0.35", "0.35-0.50", "0.50-0.75", "0.75-1.00"]
-print(f"\n--- confidence score distribution ---")
+print(f"\nconfidence score distribution:")
 conf_dist = {}
 for cls, scores in mp["confidence_scores_per_class"].items():
     if len(scores) == 0:
@@ -127,7 +127,7 @@ for cls, scores in mp["confidence_scores_per_class"].items():
     print(f"  {cls:<12} n={len(scores):5d}  mean={s_mean:.3f}  std={s_std:.3f}  bins={list(bins_d.values())}")
 
 # power + energy (from existing analysis)
-print(f"\n--- power summary ---")
+print(f"\npower summary:")
 print(f"idle     : {pw['idle']['power_mean_W']:.4f}W")
 print(f"inference: {pw['inference']['power_mean_W']:.4f}W")
 print(f"delta    : {pw['delta_power_W']:.4f}W")
@@ -140,7 +140,7 @@ print(f"cost/yr  : {pw['operational_cost']['EUR_per_year']:.2f} EUR")
 # edge tpu op fallback
 edgetpu_ops = {"total_ops": 357, "on_tpu": 351, "cpu_fallback": 6,
                "fallback_reason": "custom NMS op not supported on Edge TPU"}
-print(f"\n--- edge tpu op fallback ---")
+print(f"\nedge tpu op fallback:")
 print(f"total ops   : {edgetpu_ops['total_ops']}")
 print(f"on tpu      : {edgetpu_ops['on_tpu']}  ({edgetpu_ops['on_tpu']/edgetpu_ops['total_ops']*100:.1f}%)")
 print(f"cpu fallback: {edgetpu_ops['cpu_fallback']}  ({edgetpu_ops['fallback_reason']})")
@@ -153,7 +153,7 @@ lite_pos = {
     "lite4": {"input": "640x640", "coco_map50_edgetpu": None,   "edge_tpu_compatible": False,
               "note": "compiler error on Edge TPU - too large for on-chip SRAM"}
 }
-print(f"\n--- efficientdet-lite2 positioning ---")
+print(f"\nefficientdet-lite2 positioning:")
 for m, v in lite_pos.items():
     compat = "OK edge tpu" if v["edge_tpu_compatible"] else "FAIL edge tpu"
     note = f"  [{v['note']}]" if "note" in v else ""

@@ -45,17 +45,17 @@ inf_V = [r["V"] for r in inf_rows]
 idle_T = [r["T"] for r in idle_rows]
 inf_T = [r["T"] for r in inf_rows]
 
-print(f"\n--- coral real-image power analysis ---")
+print("\ncoral real-image power analysis:")
 print(f"total samples : {len(rows)}")
 print(f"duration      : {rows[-1]['elapsed']:.1f}s")
 print(f"threshold     : {THRESHOLD_W}W")
 
-print(f"\n-- idle ({len(idle_rows)} samples) --")
+print(f"\nidle ({len(idle_rows)} samples):")
 print(f"power : mean={statistics.mean(idle_W):.3f}W  std={statistics.stdev(idle_W):.3f}W  min={min(idle_W):.3f}W  max={max(idle_W):.3f}W")
 print(f"volt  : mean={statistics.mean(idle_V):.3f}V")
 print(f"temp  : mean={statistics.mean(idle_T):.1f}C  max={max(idle_T):.1f}C")
 
-print(f"\n-- inference ({len(inf_rows)} samples) --")
+print(f"\ninference ({len(inf_rows)} samples):")
 print(f"power : mean={statistics.mean(inf_W):.3f}W  std={statistics.stdev(inf_W):.3f}W  min={min(inf_W):.3f}W  max={max(inf_W):.3f}W")
 print(f"volt  : mean={statistics.mean(inf_V):.3f}V  min={min(inf_V):.3f}V")
 print(f"temp  : mean={statistics.mean(inf_T):.1f}C  max={max(inf_T):.1f}C")

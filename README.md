@@ -26,7 +26,7 @@ AMD Kria KV260: Ubuntu 22.04 (Python 3.10.20), x07 firmware. ONNX Runtime 1.16.0
 - The Coral tflite_runtime is whatever ships with the Mendel image. The version that matters for the reproducing the Coral numbers is the Edge TPU Compiler version above.
 - For the KV260, all final numbers are on the x07 firmware, which fixed an on-board compiler crash. The DPU fingerprint is 0x101000056010407, target DPUCZDX8G_ISA1_B4096, running at 300 MHz. Final latency and power metrics (calibration-independent) are captured using 500-image calibration and the mAP results are based on the 500-calibration model.
 - All host-side work (training, export, ONNX conversion, quantization, evaluation) ran on on PC on Ubuntu 22.04, with each board driven over the network.
-- Power is captured differently per board: Coral and VIM3 use an external ATORCH J7-C BLE power meter on the USB-C power rail. Jetson uses the on-board INA3221 sensor via tegrastats (subprocess + parsed log). KV260 uses the on-board INA260 sensor via direct sysfs reads (see scripts/kv260/power_benchmark.py).
+- Power is captured differently per board: Coral and VIM3 use an external ATORCH J7-C BLE power meter on the USB-C power rail. Jetson uses the on-board INA3221 sensor via tegrastats (subprocess + parsed log). KV260 uses the on-board INA260 sensor via direct sysfs reads.
 
 The Coefficient of Variations in Table 5.1 is computed from each board's dedicated repeated-inference timing run; the per-run raw logs are available on request.
 
