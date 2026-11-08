@@ -6,6 +6,7 @@ doi: "10.5281/zenodo.24057356"
 authors:
   - family-names: Shrestha
     given-names: Ashish
+    orcid: "https://orcid.org/0009-0006-3428-6395"
 repository-code: "https://github.com/theagleye/four-edge-ai-accelerators-benchmark"
 license:
   - MIT
