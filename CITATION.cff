@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: Shrestha
     given-names: Ashish
-repository-code: "https://github.com/theagleye/Four-Edge-AI-Accelerators-Benchmark"
+repository-code: "https://github.com/theagleye/four-edge-ai-accelerators-benchmark"
 license:
   - MIT
   - CC-BY-4.0
