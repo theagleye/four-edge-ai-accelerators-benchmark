@@ -1,5 +1,7 @@
 # A Controlled Benchmark of Edge AI Accelerators for Traffic Object Detection
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24057357.svg)](https://doi.org/10.5281/zenodo.24057357)
+
 Scripts and raw result files for my MSc thesis at the University of Turku (2026).
 
 One EfficientDet-Lite2 detector was trained once on a 7-class BDD100K subset and deployed on three edge accelerators: the Coral Dev Board Mini (Edge TPU), the Khadas VIM3 (NPU) and the AMD Kria KV260 (FPGA DPU). The Jetson Nano could not build the EfficientDet-Lite2 graph with its TensorRT version, so it runs YOLOv4-416 in TensorRT FP16 as a reference point. Every board was measured the same way: latency, power, energy per inference and detection accuracy.
