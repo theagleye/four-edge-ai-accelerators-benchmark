@@ -1,0 +1,13 @@
+{
+  "upload_type": "software",
+  "title": "A Controlled Benchmark of Edge AI Accelerators for Traffic Object Detection: scripts and results",
+  "creators": [
+    {"name": "Shrestha, Ashish", "affiliation": "University of Turku"}
+  ],
+  "description": "Scripts, raw result files and deployed models for an MSc thesis benchmarking one EfficientDet-Lite2 detector on the Coral Dev Board Mini, Khadas VIM3 and AMD Kria KV260, with a Jetson Nano reference.",
+  "license": "mit",
+  "access_right": "open",
+  "related_identifiers": [
+    {"identifier": "https://urn.fi/URN:NBN:fi-fe20260803114484", "relation": "isSupplementTo", "resource_type": "publication-thesis"}
+  ]
+}
