@@ -84,6 +84,7 @@ results/
 - File names use `kr260`, the project's working name for the board. The board is a KV260 Vision AI Starter Kit.
 - Some result files came from copies of a script with a few constants changed, such as the model path for each calibration size. [results/NOTES.md](results/NOTES.md) lists each case.
 - The models behind the published results are in [models/](models/README.md), with SHA-256 checksums. Datasets are not included.
+- The Jetson model is not included: YOLOv4-416 uses public pretrained COCO weights, and its TensorRT engine was built on the board with the `tensorrt_demos` tools. An engine only runs on the GPU and TensorRT version it was built with.
 
 ## Citation
 
