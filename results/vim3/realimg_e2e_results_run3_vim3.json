@@ -1,6 +1,6 @@
 {
-  "platform": "Khadas VIM3 Basic - Amlogic A311D NPU (TIM-VX delegate)",
-  "model": "EfficientDet-Lite2 INT8 - model_run3.tflite",
+  "platform": "Khadas VIM3 Basic \u2014 Amlogic A311D NPU (TIM-VX delegate)",
+  "model": "EfficientDet-Lite2 INT8 \u2014 model_run3.tflite",
   "benchmark_type": "real_image_e2e",
   "input_shape": [
     1,
@@ -66,7 +66,7 @@
       "max": 263.7461,
       "n_samples": 7014
     },
-    "power_watts": "not_available - measured externally via ATORCH J7-C"
+    "power_watts": "not_available \u2014 measured externally via ATORCH J7-C"
   },
   "notes": {
     "e2e_def": "E2E = disk load + PIL resize + set_tensor + invoke + get_tensor",

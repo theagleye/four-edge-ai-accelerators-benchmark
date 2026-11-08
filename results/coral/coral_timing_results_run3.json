@@ -1,0 +1,80 @@
+{
+  "platform": "Coral Dev Board Mini \u2014 Google Edge TPU",
+  "model": "EfficientDet-Lite2 INT8 \u2014 model_run3_edgetpu.tflite",
+  "input_shape": [
+    1,
+    448,
+    448,
+    3
+  ],
+  "num_warmup": 5,
+  "num_runs": 100,
+  "load_time_ms": 3398.12,
+  "warmup": {
+    "invoke_ms_per_run": [
+      610.34,
+      314.53,
+      318.45,
+      329.3,
+      321.89
+    ],
+    "e2e_ms_per_run": [
+      611.46,
+      315.22,
+      319.05,
+      330.05,
+      322.44
+    ],
+    "note": "First run typically slowest (JIT/cache cold start)"
+  },
+  "steady_state": {
+    "invoke": {
+      "median_ms": 317.82,
+      "mean_ms": 321.52,
+      "std_ms": 10.963,
+      "min_ms": 312.779,
+      "max_ms": 392.43,
+      "n": 100
+    },
+    "e2e": {
+      "median_ms": 318.363,
+      "mean_ms": 322.037,
+      "std_ms": 10.965,
+      "min_ms": 313.391,
+      "max_ms": 392.968,
+      "n": 100
+    },
+    "throughput_fps": 3.105,
+    "total_bench_time_s": 32.207
+  },
+  "system": {
+    "cpu_percent": {
+      "mean": 23.227,
+      "median": 25.0,
+      "std": 7.9554,
+      "min": 0.0,
+      "max": 43.9,
+      "n_samples": 315
+    },
+    "ram_mb": {
+      "mean": 64.6597,
+      "median": 64.6992,
+      "std": 0.087,
+      "min": 64.4688,
+      "max": 64.6992,
+      "n_samples": 315
+    },
+    "power_watts": "not_available \u2014 use USB-C power meter externally"
+  },
+  "notes": {
+    "e2e_def": "E2E = set_tensor + invoke + get_tensor (all outputs)",
+    "invoke_def": "invoke only = interpreter.invoke() call",
+    "input_type": "synthetic dummy input uint8 [0,255] seed=42",
+    "power_note": "Power not measurable via sysfs \u2014 use USB-C power meter",
+    "vim3_reference": {
+      "invoke_median_ms": 1374,
+      "e2e_median_ms": 1374,
+      "throughput_fps": 0.727
+    }
+  }
+}

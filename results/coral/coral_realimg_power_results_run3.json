@@ -1,5 +1,5 @@
 {
-  "platform": "Coral Dev Board Mini - Google Edge TPU",
+  "platform": "Coral Dev Board Mini \u2014 Google Edge TPU",
   "benchmark_type": "real_image_e2e_power",
   "n_total_samples": 305,
   "duration_s": 304.7,
@@ -38,5 +38,5 @@
     "EUR_per_year": 1.32,
     "electricity_rate": "0.1 EUR/kWh"
   },
-  "methodology_note": "Power measured at Coral Dev Board Mini dedicated USB-C power port via ATORCH J7-C. OTG port connected to host for SSH - small unmetered VBUS contribution from host not captured. Idle/inference phases separated at 1.0W threshold."
+  "methodology_note": "Power measured at Coral Dev Board Mini dedicated USB-C power port via ATORCH J7-C. OTG port connected to host for SSH \u2014 small unmetered VBUS contribution from host not captured. Idle/inference phases separated at 1.0W threshold."
 }

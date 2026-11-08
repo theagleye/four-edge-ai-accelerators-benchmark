@@ -1,5 +1,5 @@
 {
-  "platform": "Jetson Nano - NVIDIA Maxwell GPU",
+  "platform": "Jetson Nano \u2014 NVIDIA Maxwell GPU",
   "model": "YOLOv4-416 TensorRT FP16",
   "benchmark_type": "real_image_e2e",
   "num_images": 500,

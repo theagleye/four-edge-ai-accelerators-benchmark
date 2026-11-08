@@ -1,0 +1,13 @@
+{
+  "model": "yolov4-416",
+  "backend": "TensorRT FP16",
+  "platform": "Jetson Nano",
+  "warmup": 10,
+  "iterations": 500,
+  "median_ms": 210.709944494738,
+  "mean_ms": 210.9524819959188,
+  "std_ms": 0.6393710227573309,
+  "min_ms": 209.9023490009131,
+  "max_ms": 213.64524499949766,
+  "fps": 4.745860487970337
+}

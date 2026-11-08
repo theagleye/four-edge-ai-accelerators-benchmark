@@ -1,0 +1,79 @@
+{
+  "platform": "Khadas VIM3 Basic \u2014 Amlogic A311D NPU (TIM-VX)",
+  "model": "EfficientDet-Lite2 INT8 \u2014 model_run3.tflite",
+  "input_shape": [
+    1,
+    448,
+    448,
+    3
+  ],
+  "num_warmup": 5,
+  "num_runs": 100,
+  "load_time_ms": 148.02,
+  "warmup": {
+    "invoke_ms_per_run": [
+      9265.61,
+      1374.4,
+      1374.38,
+      1374.33,
+      1374.22
+    ],
+    "e2e_ms_per_run": [
+      9266.37,
+      1374.63,
+      1374.61,
+      1374.56,
+      1374.45
+    ],
+    "note": "first run typically slowest (JIT/cache cold start)"
+  },
+  "steady_state": {
+    "invoke": {
+      "median_ms": 1374.2,
+      "mean_ms": 1374.228,
+      "std_ms": 0.124,
+      "min_ms": 1374.041,
+      "max_ms": 1374.61,
+      "n": 100
+    },
+    "e2e": {
+      "median_ms": 1374.407,
+      "mean_ms": 1374.438,
+      "std_ms": 0.126,
+      "min_ms": 1374.251,
+      "max_ms": 1374.821,
+      "n": 100
+    },
+    "throughput_fps": 0.728,
+    "total_bench_time_s": 137.445
+  },
+  "system": {
+    "cpu_percent": {
+      "mean": 0.4276,
+      "median": 0.0,
+      "std": 1.2784,
+      "min": 0.0,
+      "max": 6.6,
+      "n_samples": 1371
+    },
+    "ram_mb": {
+      "mean": 258.3984,
+      "median": 258.3984,
+      "std": 0.0,
+      "min": 258.3984,
+      "max": 258.3984,
+      "n_samples": 1371
+    },
+    "power_watts": "not_available \u2014 no sysfs power file found"
+  },
+  "notes": {
+    "nms_op": "CUSTOM/NMS op falls back to CPU \u2014 expected for EfficientDet",
+    "e2e_def": "E2E = set_tensor + invoke + get_tensor (all outputs)",
+    "invoke_def": "invoke only = interpreter.invoke() call",
+    "coral_reference": {
+      "invoke_median_ms": 317.82,
+      "e2e_median_ms": 375.61,
+      "mAP_50": 0.2347
+    }
+  }
+}

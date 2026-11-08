@@ -1,7 +1,7 @@
 {
-  "platform": "Coral Dev Board Mini - Google Edge TPU",
-  "model": "EfficientDet-Lite2 INT8 - model_run3_edgetpu.tflite",
-  "dataset": "BDD100K run2/val - 4993 images",
+  "platform": "Coral Dev Board Mini \u2014 Google Edge TPU",
+  "model": "EfficientDet-Lite2 INT8 \u2014 model_run3_edgetpu.tflite",
+  "dataset": "BDD100K run2/val \u2014 4993 images",
   "methodology": "matches eval_map_voc.py exactly",
   "score_threshold": 0.25,
   "iou_threshold": 0.5,
@@ -58,7 +58,7 @@
     "mAP_50": 0.1658,
     "invoke_median_ms": 320,
     "e2e_median_ms": 490,
-    "note": "Coral mAP was on run1/val - needs rerun on run2/val for fair comparison"
+    "note": "Coral mAP was on run1/val \u2014 needs rerun on run2/val for fair comparison"
   },
   "class_mapping": {
     "1": "tl_red",

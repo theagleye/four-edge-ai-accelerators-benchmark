@@ -1,6 +1,6 @@
 {
-  "platform": "Khadas VIM3 Basic - Amlogic A311D NPU (TIM-VX)",
-  "model": "EfficientDet-Lite2 INT8 - model_run3.tflite",
+  "platform": "Khadas VIM3 Basic \u2014 Amlogic A311D NPU (TIM-VX)",
+  "model": "EfficientDet-Lite2 INT8 \u2014 model_run3.tflite",
   "benchmark_type": "real_image_e2e",
   "idle_power": {
     "mean_W": 2.3951,
@@ -38,5 +38,12 @@
     "invoke_median_ms": 1374.117,
     "e2e_median_ms": 1407.354,
     "fps": 0.711
+  },
+  "coral_reference": {
+    "idle_W": 0.796,
+    "inference_W": 1.504,
+    "energy_per_invoke_J": 0.492,
+    "energy_per_e2e_J": 0.565,
+    "fps_per_watt": 1.757
   }
 }

@@ -1,0 +1,82 @@
+{
+  "platform": "Coral Dev Board Mini \u2014 Google Edge TPU",
+  "model": "EfficientDet-Lite2 INT8 \u2014 model_run3_edgetpu.tflite",
+  "benchmark_type": "real_image_e2e",
+  "input_shape": [
+    1,
+    448,
+    448,
+    3
+  ],
+  "num_images": 500,
+  "random_seed": 42,
+  "images_processed": 500,
+  "images_skipped": 0,
+  "load_time_ms": 3396.11,
+  "warmup": {
+    "invoke_ms_per_run": [
+      612.62,
+      325.68,
+      326.78,
+      325.48,
+      324.64
+    ],
+    "e2e_ms_per_run": [
+      613.81,
+      326.2,
+      327.27,
+      325.97,
+      325.16
+    ]
+  },
+  "steady_state": {
+    "invoke": {
+      "median_ms": 326.874,
+      "mean_ms": 330.22,
+      "std_ms": 10.734,
+      "min_ms": 313.925,
+      "max_ms": 382.626,
+      "n": 500
+    },
+    "e2e": {
+      "median_ms": 375.612,
+      "mean_ms": 378.454,
+      "std_ms": 11.08,
+      "min_ms": 362.213,
+      "max_ms": 430.778,
+      "n": 500
+    },
+    "throughput_fps": 2.642,
+    "total_bench_time_s": 189.24
+  },
+  "system": {
+    "cpu_percent": {
+      "mean": 22.5092,
+      "median": 24.4,
+      "std": 7.2223,
+      "min": 0.0,
+      "max": 41.0,
+      "n_samples": 1855
+    },
+    "ram_mb": {
+      "mean": 72.3819,
+      "median": 72.4375,
+      "std": 0.3389,
+      "min": 66.5625,
+      "max": 73.207,
+      "n_samples": 1855
+    },
+    "power_watts": "not_available \u2014 measure with USB-C power meter"
+  },
+  "notes": {
+    "e2e_def": "E2E = disk load + PIL resize + set_tensor + invoke + get_tensor",
+    "invoke_def": "invoke only = interpreter.invoke() call",
+    "input_type": "real BDD100K val images, resized to 448x448",
+    "power_note": "measure with USB-C power meter inline",
+    "vim3_reference": {
+      "invoke_median_ms": 1374.255,
+      "e2e_median_ms": 1407.106,
+      "throughput_fps": 0.711
+    }
+  }
+}

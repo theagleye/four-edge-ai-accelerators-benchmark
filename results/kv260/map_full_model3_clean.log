@@ -1,0 +1,12 @@
+nohup: ignoring input
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I20260510 09:21:53.833005 179295 vitisai_compile_model.cpp:242] Vitis AI EP Load ONNX Model Success
+I20260510 09:21:53.833144 179295 vitisai_compile_model.cpp:243] Graph Input Node Name/Shape (1)
+I20260510 09:21:53.833174 179295 vitisai_compile_model.cpp:247] 	 serving_default_images:0 : [1x448x448x3]
+I20260510 09:21:53.833202 179295 vitisai_compile_model.cpp:253] Graph Output Node Name/Shape (4)
+I20260510 09:21:53.833226 179295 vitisai_compile_model.cpp:257] 	 StatefulPartitionedCall:1 : [1x25]
+I20260510 09:21:53.833251 179295 vitisai_compile_model.cpp:257] 	 StatefulPartitionedCall:3 : [1x25x4]
+I20260510 09:21:53.833276 179295 vitisai_compile_model.cpp:257] 	 StatefulPartitionedCall:0 : [1]
+I20260510 09:21:53.833300 179295 vitisai_compile_model.cpp:257] 	 StatefulPartitionedCall:2 : [1x25]
+F20260510 09:21:54.504046 179295 node_attrs.cpp:84] unknown type:2
+I20260510 09:21:54.633858 179295 vitisai_compile_model.cpp:270] Catch fatal exception, skip this subgraph. Set XLNX_ENABLE_SKIP_FATAL=0 to stop skip.

@@ -1,7 +1,7 @@
 {
-  "platform": "AMD Kria KV260 Robotics Starter Kit - DPUCZDX8G FPGA DPU",
-  "model": "EfficientDet-Lite2 INT8 - model_run3_quark_500.onnx (Quark 0.11.1, PowerOfTwoMethod.MinMSE, 500 calib imgs)",
-  "quantization_note": "Final run - 500 calib images, PowerOfTwoMethod.MinMSE",
+  "platform": "AMD Kria KR260 Robotics Starter Kit \u2014 DPUCZDX8G FPGA DPU",
+  "model": "EfficientDet-Lite2 INT8 \u2014 model_run3_quark_500.onnx (Quark 0.11.1, PowerOfTwoMethod.MinMSE, 500 calib imgs)",
+  "quantization_note": "Final run \u2014 500 calib images, PowerOfTwoMethod.MinMSE",
   "input_shape": [
     1,
     448,
@@ -72,7 +72,7 @@
         "max": 197.4688,
         "n_samples": 946
       },
-      "power_watts": "measured using the on-board INA260 sensor via direct sysfs reads (axi:ina260-u14, hwmon2)"
+      "power_watts": "measured externally via ATORCH J7-C"
     },
     "e2e_def": "np.empty alloc + sess.run() + iterate outputs (no NMS)",
     "invoke_def": "sess.run() call only (DPU inference + I/O copy)"
@@ -141,11 +141,11 @@
         "max": 260.6875,
         "n_samples": 1633
       },
-      "power_watts": "measured using the on-board INA260 sensor via direct sysfs reads (axi:ina260-u14, hwmon2)"
+      "power_watts": "measured externally via ATORCH J7-C"
     },
     "e2e_def": "PIL load+resize+normalize + sess.run() + anchor decode + NMS",
     "invoke_def": "sess.run() only (within real-image pipeline)",
-    "comparability_note": "KV260 invoke excludes NMS (baked into Coral/VIM3 TFLite). Real-image e2e includes NMS and is comparable to Coral/VIM3 e2e."
+    "comparability_note": "KR260 invoke excludes NMS (baked into Coral/VIM3 TFLite). Real-image e2e includes NMS and is comparable to Coral/VIM3 e2e."
   },
   "notes": {
     "dpu_fingerprint": "0x101000056010407",
@@ -173,6 +173,16 @@
       ],
       "anchor_base_scale": 4.0
     },
-    "power": "measured via INA260 onboard sensor (axi:ina260-u14, hwmon2)"
+    "power": "measured via INA260 onboard sensor (axi:ina260-u14, hwmon2)",
+    "coral_ref": {
+      "invoke_ms": 317.82,
+      "e2e_ms": 375.61,
+      "mAP50": 0.2347
+    },
+    "vim3_ref": {
+      "invoke_ms": 1374.14,
+      "e2e_ms": 1407.11,
+      "mAP50": 0.2278
+    }
   }
 }

@@ -1,7 +1,7 @@
 {
-  "platform": "Khadas VIM3 Basic - Amlogic A311D NPU (TIM-VX)",
-  "model": "EfficientDet-Lite2 INT8 - model_run3.tflite",
-  "dataset": "BDD100K val - 4993 images",
+  "platform": "Khadas VIM3 Basic \u2014 Amlogic A311D NPU (TIM-VX)",
+  "model": "EfficientDet-Lite2 INT8 \u2014 model_run3.tflite",
+  "dataset": "BDD100K val \u2014 4993 images",
   "methodology": "matches Coral mAP benchmark exactly",
   "score_threshold": 0.25,
   "iou_threshold": 0.5,
@@ -59032,6 +59032,11 @@
   "total_inference_time_min": 116.75,
   "throughput_fps": 0.713,
   "skipped": 0,
+  "coral_reference": {
+    "mAP_50": 0.2347,
+    "invoke_median_ms": 317.82,
+    "e2e_median_ms": 375.61
+  },
   "class_mapping": {
     "1": "tl_red",
     "2": "tl_green",

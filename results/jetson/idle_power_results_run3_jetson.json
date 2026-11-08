@@ -1,5 +1,5 @@
 {
-  "platform": "Jetson Nano - NVIDIA Maxwell GPU",
+  "platform": "Jetson Nano \u2014 NVIDIA Maxwell GPU",
   "benchmark_type": "idle_power_baseline",
   "duration_s": 90,
   "n_samples": 178,
