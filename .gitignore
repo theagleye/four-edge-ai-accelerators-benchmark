@@ -1,13 +1,2 @@
 __pycache__/
 *.pyc
-*.pyo
-.DS_Store
-*.swp
-*.swo
-*~
-.idea/
-.vscode/
-*.onnx
-*.tflite
-*.h5
-

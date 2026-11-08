@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use these scripts or results, please cite the thesis."
+title: "A Controlled Benchmark of Edge AI Accelerators for Traffic Object Detection: scripts and results"
+type: software
+authors:
+  - family-names: Shrestha
+    given-names: Ashish
+repository-code: "https://github.com/theagleye/Four-Edge-AI-Accelerators-Benchmark"
+license:
+  - MIT
+  - CC-BY-4.0
+preferred-citation:
+  type: thesis
+  title: "A Controlled Benchmark of Edge AI Accelerators for Traffic Object Detection"
+  authors:
+    - family-names: Shrestha
+      given-names: Ashish
+  thesis-type: "Master's thesis"
+  institution:
+    name: "University of Turku"
+  year: 2026
+  url: "https://urn.fi/URN:NBN:fi-fe20260803114484"
