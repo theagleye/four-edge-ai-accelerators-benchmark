@@ -1,6 +1,6 @@
 # A Controlled Benchmark of Edge AI Accelerators for Traffic Object Detection
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24057357.svg)](https://doi.org/10.5281/zenodo.24057357)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24057356.svg)](https://doi.org/10.5281/zenodo.24057356)
 
 Scripts and raw result files for my MSc thesis at the University of Turku (2026).
 

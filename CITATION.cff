@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use these scripts or results, please cite the thesis."
 title: "A Controlled Benchmark of Edge AI Accelerators for Traffic Object Detection: scripts and results"
 type: software
-doi: "10.5281/zenodo.24057357"
+doi: "10.5281/zenodo.24057356"
 authors:
   - family-names: Shrestha
     given-names: Ashish
