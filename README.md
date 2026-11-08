@@ -70,6 +70,7 @@ scripts/
   jetson/     timing, real-image E2E with power, COCO mAP, 500-run thermal, idle power, ONNX cast attempts
   kv260/      Quark quantization, timing, DPU mAP, CPU reference mAP
   shared/     ATORCH J7-C power logger
+models/      deployed Coral, VIM3 and KV260 models, the Quark input model, KV260 anchors
 results/
   training/   epoch losses, export logs, Edge TPU compiler log
   coral/ vim3/ jetson/ kv260/   raw result files, exactly as the scripts wrote them
@@ -82,7 +83,7 @@ results/
 - Paths are the absolute paths used on each board: `/mnt/thesis` on the Coral, `/home/khadas` on the VIM3, `~/THESIS/jetson_nano` on the Jetson, `/home/ubuntu` on the KV260. Edit the constants at the top of a script before running it.
 - File names use `kr260`, the project's working name for the board. The board is a KV260 Vision AI Starter Kit.
 - Some result files came from copies of a script with a few constants changed, such as the model path for each calibration size. [results/NOTES.md](results/NOTES.md) lists each case.
-- Models and datasets are not included.
+- The models behind the published results are in [models/](models/README.md), with SHA-256 checksums. Datasets are not included.
 
 ## Citation
 
@@ -100,4 +101,4 @@ Cite the thesis. [CITATION.cff](CITATION.cff) has the details.
 
 ## License
 
-Code is under the MIT License ([LICENSE](LICENSE)). Result files and documentation are under CC BY 4.0 ([LICENSE-DATA](LICENSE-DATA)).
+Code is under the MIT License ([LICENSE](LICENSE)). Result files and documentation are under CC BY 4.0 ([LICENSE-DATA](LICENSE-DATA)). The model files are for educational, research and not-for-profit use only, because they were trained on BDD100K ([LICENSE-MODELS](LICENSE-MODELS)).

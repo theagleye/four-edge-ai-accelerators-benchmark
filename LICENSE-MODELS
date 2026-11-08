@@ -1,0 +1,12 @@
+Model files in models/
+
+Copyright (c) 2026 Ashish Shrestha
+
+The model files in the models/ folder were trained on the BDD100K dataset.
+The BDD100K license allows use for educational, research and not-for-profit
+purposes only. The model files are released under the same limits.
+
+You may use, copy and modify the model files for educational, research and
+not-for-profit purposes. Commercial use is not permitted.
+
+The model files are provided "as is", without warranty of any kind.
